@@ -230,7 +230,7 @@ hl.config({
     },
     -- Read https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more info on dwindle layout.
     dwindle = {
-        pseudotile = true,
+        -- pseudotile = true,
         preserve_split = true,
     },
     -- Read https://wiki.hyprland.org/Configuring/Master-Layout/ for more info on master layout.
@@ -244,7 +244,7 @@ hl.config({
     },
     -- No need for gestures unless you have a touch display.
     gestures = {
-        workspace_swipe = false,
+        -- workspace_swipe = false,
     },
     --                                    !!KEYBINDS!!                                   #
     -- --------------------------------------------------------------------------------- #
