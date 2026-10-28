@@ -17,6 +17,8 @@ hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 -- mod + D = toggle application launcher (I prefer wofi).
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+-- mod + shift + M = stop the current UWSM session.
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
 
 -- Switch current workspaces with mainMod + [0-9]
 hl.bind(mainMod .. " + 1", hl.dsp.focus({ workspace = 1 }))
