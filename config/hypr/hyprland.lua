@@ -19,48 +19,10 @@ require("workspaces")
 --                                    !!MODULES!!                                    #
 
 require("modules.env")
-
+require("modules.animations")
+require("modules.decorations")
 -- READ https://wiki.hyprland.org/Configuring/Variables/#input IF CONFUSED!
 -- Example keyboard/mouse input settings.
-
-hl.curve("myBezier", { type = "bezier", points = { { 0, 1 }, { 0.18, 1.0 } } })
-hl.animation({
-    leaf = "windows",
-    enabled = true,
-    speed = 1.5,
-    bezier = "myBezier",
-})
-hl.animation({
-    leaf = "windowsOut",
-    enabled = true,
-    speed = 2,
-    bezier = "myBezier",
-    style = "popin 95%",
-})
-hl.animation({
-    leaf = "border",
-    enabled = true,
-    speed = 12,
-    bezier = "myBezier",
-})
-hl.animation({
-    leaf = "borderangle",
-    enabled = true,
-    speed = 5,
-    bezier = "default",
-})
-hl.animation({
-    leaf = "fade",
-    enabled = true,
-    speed = 6,
-    bezier = "default",
-})
-hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 6,
-    bezier = "default",
-})
 
 local mainMod = "SUPER"
 
@@ -140,7 +102,7 @@ hl.config({
     input = {
         -- English, Swedish, and Spanish keyboard layout example,
         -- Switch layout with pressing: alt + shift
-        kb_layout = "us,se",
+        kb_layout = "us",
         kb_options = "grp:alt_shift_toggle",
         -- Set as needed
         kb_rules = "",
@@ -156,74 +118,6 @@ hl.config({
     -- This fixes a few bugs.
     cursor = {
         no_hardware_cursors = true,
-    },
-    --                                    !!DESIGN!!                                     #
-    -- --------------------------------------------------------------------------------- #
-    --                                    !!DESIGN!!                                     #
-    -- I prefer quick animations, that's what this setup is.
-    animations = {
-        -- SET enabled = false if you want to disable animations.
-        enabled = true,
-    },
-    -- The gaps between windows, as well as border colors.
-    -- proportional to the taskbar values.
-    general = {
-        -- Inner and Outer gaps between windows.
-        gaps_in = 5,
-        gaps_out = 10,
-        -- I prefer a thin border
-        border_size = 1,
-        -- Border colors.
-        col = {
-            active_border = "rgb(18,18,18)",
-            inactive_border = "rgb(18,18,18)",
-        },
-        -- Set to true enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = true,
-        layout = "dwindle",
-        -- READ https://wiki.hyprland.org/Configuring/Tearing/ BEFORE TURNING ON!
-        allow_tearing = false,
-    },
-    -- Window Decorations! Shadow, Blur, etc.
-    decoration = {
-        -- 8px same as taskbar, change if wanted.
-        rounding = 12,
-        -- I want transparancy to not change, since we have the colored border.
-        active_opacity = 1.0,
-        inactive_opacity = 1,
-        -- Window Shadow
-        shadow = {
-            enabled = true,
-            range = 16,
-            render_power = 5,
-            color = "rgba(0,0,0,0.35)",
-        },
-        -- Transparent Window Blur
-        blur = {
-            enabled = true,
-            new_optimizations = true,
-            size = 2,
-            passes = 3,
-            vibrancy = 0.1696,
-        },
-    },
-    -- Read https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more info on dwindle layout.
-    dwindle = {
-        -- pseudotile = true,
-        preserve_split = true,
-    },
-    -- Read https://wiki.hyprland.org/Configuring/Master-Layout/ for more info on master layout.
-    master = {
-        new_status = "master",
-    },
-    -- We have our own wallpapers :) So I'll disable default things.
-    misc = {
-        force_default_wallpaper = 0,
-        disable_hyprland_logo = true,
-    },
-    -- No need for gestures unless you have a touch display.
-    gestures = {
-        -- workspace_swipe = false,
     },
     --                                    !!KEYBINDS!!                                   #
     -- --------------------------------------------------------------------------------- #
