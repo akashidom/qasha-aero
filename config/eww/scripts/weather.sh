@@ -10,9 +10,9 @@ cache_weather_quote=${cache_dir}/weather-quote
 cache_weather_hex=${cache_dir}/weather-hex
 cache_weather_icon=${cache_dir}/weather-icon
 
-## WEATHER API DATA & KEYS! --------- INPUT YOUR DETAILS FROM openweathermap.org !!!
-KEY=""
-ID="" # Steps: 1. Go to openweathermap.org | 2. Search your City | 3. The City ID is in the URL. 
+## Set OPENWEATHER_API_KEY and OPENWEATHER_CITY_ID in the environment (i personally suggest ~/.config/environment.d/openweather.conf).
+## The city ID is shown in the URL when searching for your city.
+## Steps: 1. Go to openweathermap.org | 2. Search your City | 3. The City ID is in the URL.
 UNIT="metric"	# Available options : 'metric' or 'imperial'
 ## --------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ fi
 
 ## Get data
 get_weather_data() {
-	weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="$KEY"&id="$ID"&units="$UNIT""`
+	weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="$OPENWEATHER_API_KEY"&id="$OPENWEATHER_CITY_ID"&units="$UNIT""`
 	echo ${weather}
 
 	if [ ! -z "$weather" ]; then
@@ -112,7 +112,7 @@ get_weather_data() {
 			weather_icon=" "
 			weather_quote="Forecast says it's a misty night \nDon't go anywhere tonight or you might get lost..."
 			weather_hex="#84afdb"
-		else 
+		else
 			weather_icon=" "
 			weather_quote="Sort of odd, I don't know what to forecast \nMake sure you have a good time!"
 			weather_hex="#adadff"
@@ -147,4 +147,3 @@ elif [[ "$1" == "--quote" ]]; then
 elif [[ "$1" == "--quote2" ]]; then
 	cat ${cache_weather_quote} | tail -n1
 fi
-
