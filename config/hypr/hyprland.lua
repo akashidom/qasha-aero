@@ -3,6 +3,7 @@
 --   window effects, but you could achieve 99% of the same design with swayfx as well; I just chose hyprland due to
 --   compatability issues with nvidia GPU.
 -- ========
+require("variables")
 
 --                                    !!MONITORS!!                                   #
 -- --------------------------------------------------------------------------------- #
@@ -13,15 +14,11 @@
 require("monitors")
 require("workspaces")
 
-require("variables")
-
--- Environment variables
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-
---                                    !!INPUT!!                                      #
+--                                    !!MODULES!!                                    #
 -- --------------------------------------------------------------------------------- #
---                                    !!INPUT!!                                      #
+--                                    !!MODULES!!                                    #
+
+require("modules.env")
 
 -- READ https://wiki.hyprland.org/Configuring/Variables/#input IF CONFUSED!
 -- Example keyboard/mouse input settings.
