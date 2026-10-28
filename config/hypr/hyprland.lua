@@ -13,12 +13,7 @@
 require("monitors")
 require("workspaces")
 
--- Startup programs, these are mine, most likely you'll have these as well.
-
--- Default programs, these are what I prefer.
-local terminal = "kitty"
-local fileManager = "caja"
-local menu = "wofi --show drun"
+require("variables")
 
 -- Environment variables
 hl.env("XCURSOR_SIZE", "24")
